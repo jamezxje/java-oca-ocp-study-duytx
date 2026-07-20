@@ -1,5 +1,5 @@
 {
-    "pasteImage.path": "${workspaceRoot}/doc/assets/",
-    "pasteImage.prefix": "../doc/assets/",
-    "pasteImage.forceUnixStyleSeparator": true
+  "markdown.copyFiles.destination": {
+    "**/*": "${workspaceFolder}/doc/assets/${fileName}"
+  }
 }

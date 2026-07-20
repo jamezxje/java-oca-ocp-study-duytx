@@ -5,7 +5,8 @@ I. Access modifiers <Phạm vi truy cập>
         + protected: truy cập trong cùng package và các lớp con (kể các lớp con ở package khác)
         + default: truy cập được trong cùng package
         + private: chỉ truy cập được trong cùng 1 class
-    ![Bảng tóm tắt phạm vi truy cập](image-1.png)
+    
+![Bảng tóm tắt phạm vi truy cập](${workspaceFolder}/doc/assets/image-3.png)
 
 II. Overloading và Overriding
     1. Overloading(nạp chồng phương thức)
@@ -26,4 +27,4 @@ II. Overloading và Overriding
             + Exception: không được ném ra checked exception mới hoặc rộng hơn lớp cha
             + Không thể override: static method(chỉ có hiding), final method, private method.
 
-   ![Bảng so sánh nhanh](image-3.png)
+![Bảng so sánh nhanh](${workspaceFolder}/doc/assets/image-5.png)
