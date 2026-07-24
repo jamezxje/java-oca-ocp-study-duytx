@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "doc/notes/ocp/Chap1-Advanced-Class-Design.md",
+                "file": "doc/notes/java concept of the day/java oop/Static member.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chap1-Advanced-Class-Design"
+              "title": "Static member"
             }
           }
         ]
@@ -185,6 +185,16 @@
   },
   "active": "c56f6d891b940a82",
   "lastOpenFiles": [
+    "doc/notes/java concept of the day/java oop/Constructor.md",
+    "doc/notes/java concept of the day/java oop/${workspaceFolder}/doc/assets/image-2.png",
+    "doc/notes/java concept of the day/java oop/Static member.md",
+    "doc/notes/java concept of the day/java oop/New Text Document.txt",
+    "doc/notes/java concept of the day/java oop/${workspaceFolder}/doc/assets/image-1.png",
+    "doc/notes/java concept of the day/java oop/${workspaceFolder}/doc/assets/image.png",
+    "doc/notes/java concept of the day/java oop/${workspaceFolder}/doc/assets",
+    "doc/notes/java concept of the day/java oop/${workspaceFolder}/doc",
+    "doc/notes/java concept of the day/java oop/${workspaceFolder}",
+    "doc/notes/ocp/Chap1-Advanced-Class-Design.md",
     "doc/notes/ocp/${workspaceFolder}/doc/assets/Pasted image 20260721005732.png",
     "doc/notes/ocp/${workspaceFolder}/doc/assets/image-5.png",
     "doc/notes/ocp/${workspaceFolder}/doc/assets/image-4.png",
@@ -194,10 +204,6 @@
     "doc/notes/ocp/${workspaceFolder}/doc/assets/image.png",
     "doc/notes/ocp/${workspaceFolder}/doc/assets",
     "doc/notes/ocp/${workspaceFolder}/doc",
-    "doc/notes/ocp/${workspaceFolder}",
-    "doc/notes/ocp/image-4.png",
-    "doc/notes/ocp/image-3.png",
-    "doc/notes/ocp/image-2.png",
-    "doc/notes/ocp/image-1.png"
+    "doc/notes/ocp/${workspaceFolder}"
   ]
 }
