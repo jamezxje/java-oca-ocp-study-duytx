@@ -16,6 +16,19 @@ Dưới đây là những kiến thức cốt lõi giúp em "nhìn thấu" mọi
      SuperClass ref = new SubClass(); // Upcasting
      ```
 
+### 1.1 So sánh chi tiết: Overloading vs Overriding
+Đây là bảng tổng hợp những điểm giống và khác nhau quan trọng nhất:
+
+| Đặc điểm | Method Overloading (Nạp chồng) | Method Overriding (Ghi đè) |
+| :--- | :--- | :--- |
+| **Bản chất** | Nhiều phương thức **cùng tên** nhưng **khác chữ ký (signature)**. | Phương thức ở lớp con **giống hệt** phương thức ở lớp cha. |
+| **Mục đích** | Tăng khả năng linh hoạt cho class. | Hỗ trợ tính đa hình động (runtime polymorphism). |
+| **Thời điểm quyết định** | **Compile-time** (Trình biên dịch). | **Runtime** (JVM quyết định). |
+| **Điều kiện** | Khác tham số (số lượng, kiểu, thứ tự). | Chữ ký phải **giống hệt** (tên, tham số, kiểu trả về). |
+| **Phạm vi** | Thường trong cùng 1 class. | Giữa lớp con và lớp cha. |
+| **Access Modifier** | Không ràng buộc. | Không được giảm phạm vi truy cập (ví dụ: `protected` -> `private` là lỗi). |
+| **Kiểu trả về** | Không quan trọng. | Phải giống hoặc là kiểu Covariant. |
+
 ---
 
 ## 2. Hai loại Đa hình chính (Trọng tâm OCA)
