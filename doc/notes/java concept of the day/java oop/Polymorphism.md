@@ -33,9 +33,117 @@ Dưới đây là những kiến thức cốt lõi giúp em "nhìn thấu" mọi
 ---
 
 ![Exception handling](${workspaceFolder}/doc/assets/image-18.png)
+### 1.2 Static Binding vs Dynamic Binding
+Để thực sự hiểu sâu về tính đa hình, em cần phân biệt được cơ chế "kết nối" (binding) của Java.
 
-## 2. Hai loại Đa hình chính (Trọng tâm OCA)
+#### A. Static Binding (Early Binding)
+*   **Khi nào:** Xảy ra tại thời điểm **Compile-time**.
+*   **Cơ chế:** Trình biên dịch (Compiler) xác định phương thức hoặc biến nào sẽ được gọi dựa trên **kiểu tham chiếu (reference type)**.
+*   **Áp dụng:** Với các biến (fields), phương thức `private`, `final`, hoặc `static`.
+```java
+class Parent {
+    static void staticMethod() { System.out.println("Parent static"); }
+}
+// Khi gọi Parent.staticMethod(); -> Binding xảy ra ngay khi compile
+```
 
+```java
+class Calculator {
+    
+    // Static binding áp dụng cho Method Overloading
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    // Static binding áp dụng cho static method
+    public static void printInfo() {
+        System.out.println("Máy tính bỏ túi");
+    }
+
+    // Static binding áp dụng cho private method
+    private void secretOperation() {
+        System.out.println("Xử lý nội bộ");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        // Trình biên dịch biết NGAY LÚC COMPILE dựa vào kiểu dữ liệu truyền vào:
+        // (int, int) -> gọi phương thức add(int, int)
+        System.out.println(calc.add(5, 10)); 
+
+        // (double, double) -> gọi phương thức add(double, double)
+        System.out.println(calc.add(2.5, 3.5)); 
+
+        // Gọi static method -> liên kết thẳng với class Calculator
+        Calculator.printInfo(); 
+    }
+}
+```
+
+#### B. Dynamic Binding (Late Binding)
+*   **Khi nào:** Xảy ra tại thời điểm **Runtime**.
+*   **Cơ chế:** JVM xác định phương thức nào được gọi dựa trên **đối tượng thực tế (actual object)** nằm trên Heap.
+*   **Áp dụng:** Với các phương thức có thể override (instance methods).
+```java
+class Parent {
+    void talk() { System.out.println("Parent talk"); }
+}
+class Child extends Parent {
+    void talk() { System.out.println("Child talk"); }
+}
+
+Parent p = new Child();
+p.talk(); // Runtime mới biết gọi method của Child
+```
+
+```java
+class Animal {
+    public void makeSound() {
+        System.out.println("Động vật phát ra tiếng kêu...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Gâu gâu!");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meo meo!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Kiểu khai báo là Animal, nhưng đối tượng thực tế trong Heap là Dog
+        Animal myAnimal = new Dog(); 
+
+        // TẠI THỜI ĐIỂM BIÊN DỊCH:
+        // Trình biên dịch chỉ biết myAnimal là kiểu Animal và kiểm tra xem Animal có makeSound() không.
+        
+        // TẠI THỜI ĐIỂM CHẠY (RUNTIME):
+        // JVM kiểm tra đối tượng thực tế (là Dog) và quyết định gọi makeSound() của Dog.
+        myAnimal.makeSound(); // In ra: Gâu gâu!
+
+        // Thay đổi đối tượng thực tế sang Cat
+        myAnimal = new Cat();
+        myAnimal.makeSound(); // In ra: Meo meo!
+    }
+}
+```
+
+---
 | Đặc điểm | Đa hình Tĩnh (Compile-time / Static) | Đa hình Động (Runtime / Dynamic) |
 | :--- | :--- | :--- |
 | **Cơ chế** | **Method Overloading** (Nạp chồng phương thức). | **Method Overriding** (Ghi đè phương thức). |
