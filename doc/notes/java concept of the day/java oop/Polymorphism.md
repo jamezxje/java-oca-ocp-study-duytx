@@ -28,8 +28,11 @@ Dưới đây là những kiến thức cốt lõi giúp em "nhìn thấu" mọi
 | **Phạm vi** | Thường trong cùng 1 class. | Giữa lớp con và lớp cha. |
 | **Access Modifier** | Không ràng buộc. | Không được giảm phạm vi truy cập (ví dụ: `protected` -> `private` là lỗi). |
 | **Kiểu trả về** | Không quan trọng. | Phải giống hoặc là kiểu Covariant. |
+| **Exception Handling** | Không có quy tắc đặc biệt. Có thể ném bất kỳ ngoại lệ nào. | Tuân thủ quy tắc nghiêm ngặt: không được ném Checked Exception rộng hơn lớp cha. |
 
 ---
+
+![Exception handling](${workspaceFolder}/doc/assets/image-18.png)
 
 ## 2. Hai loại Đa hình chính (Trọng tâm OCA)
 
