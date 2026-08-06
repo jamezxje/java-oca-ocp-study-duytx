@@ -66,6 +66,11 @@ System.out.println(map.get(s2)); // ❌ KẾT QUẢ: null !!!
   2. Khi gọi `map.get(s2)`, vì `s2` là đối tượng mới nên `s2.hashCode()` ngầm định sẽ ra một con số hoàn toàn khác với `s1`. `HashMap` tìm `s2` ở Bucket #8.
   3. Bucket #8 đang rỗng $\rightarrow$ `HashMap` trả về `null` ngay lập tức mà **không bao giờ gọi tới hàm `equals()`** của em! Dữ liệu bị thất lạc.
 
+#### 🎯 Tóm Tắt 3 Ý Trả Lời Phỏng Vấn Ăn Điểm:
+1. **Hợp đồng (Contract):** Java quy định hai đối tượng bằng nhau theo `equals()` thì **BẮT BUỘC** phải có cùng `hashCode()`.
+2. **Cơ chế tìm kiếm 2 bước:** Các lớp dựa trên băm (`HashMap`, `HashSet`) luôn dùng `hashCode()` để tìm thùng chứa (Bucket) trước ($O(1)$), sau đó mới dùng `equals()` để so sánh các phần tử trong Bucket đó.
+3. **Hậu quả:** Nếu quên override `hashCode()`, hai đối tượng bằng nhau về logic sẽ sinh ra 2 `hashCode` khác nhau $\rightarrow$ Dẫn đến **thất lạc dữ liệu trong `HashMap`** (trả về `null`) và **bị chèn trùng lặp phần tử trong `HashSet`**.
+
 ---
 
 ### 4. Cạm bẫy Mutable Key trong `HashMap`
